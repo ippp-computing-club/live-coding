@@ -45,7 +45,12 @@ dict_coor = {(x_s,y_s):1}
 
 for n,i in enumerate(data):
     if n % 2 == 0:
-        x_s, y_s, dict_coor = coor_update(i,x_s,y_s,dict_coor)
+        x_s += symbols[i][0]
+        y_s += symbols[i][1]
+
+        if (x_s,y_s) not in dict_coor:
+            dict_coor[(x_s,y_s)] = 1
+        
         """
         if i == "^":
             y_s = y_s + 1
@@ -69,9 +74,16 @@ for n,i in enumerate(data):
         if (x_s,y_s) not in dict_coor: #coordinates:
             #coordinates.append((x_s,y_s))
             dict_coor[(x_s,y_s)] = 1
+
+        x_s, y_s, dict_coor = coor_update(i,x_s,y_s,dict_coor)
         """
     else:
-        x_r, y_r, dict_coor = coor_update(i,x_r,y_r,dict_coor)
+        x_r += symbols[i][0]
+        y_r += symbols[i][1]
+
+        if (x_r,y_r) not in dict_coor:
+            dict_coor[(x_r,y_r)] = 1
+
         """
         if i == "^":
             y_r = y_r + 1
@@ -94,7 +106,8 @@ for n,i in enumerate(data):
 
         if (x_r,y_r) not in dict_coor: #coordinates:
             #coordinates.append((x_r,y_r))
-            dict_coor[(x_r,y_r)] = 1       
+            dict_coor[(x_r,y_r)] = 1
+        x_r, y_r, dict_coor = coor_update(i,x_r,y_r,dict_coor)       
         """
 
 N = len(dict_coor.keys())#len(coordinates)
