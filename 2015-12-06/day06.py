@@ -21,3 +21,6 @@ for line in inp:
         grid[t:b+1, l:r+1] = False
     elif line.startswith("toggle"):
         grid[t:b+1, l:r+1] = ~grid[t:b+1, l:r+1]
+
+
+print(np.sum(grid))
