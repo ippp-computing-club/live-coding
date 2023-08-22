@@ -4,7 +4,7 @@ import numpy as np
 grid = np.zeros((1000,1000), dtype=bool)
 
 with open('input06.txt') as fp:
-    inp = fp.read().split('\n')
+    inp = fp.read().strip().split('\n')
 
 
 def parse_coord(s):
