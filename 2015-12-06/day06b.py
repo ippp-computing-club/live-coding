@@ -15,7 +15,7 @@ for line in inp:
     if line.startswith("turn on"):
         grid[t:b+1, l:r+1] += 1
     elif line.startswith("turn off"):
-        grid[t:b+1, l:r+1] -= -1
+        grid[t:b+1, l:r+1] -= 1
     elif line.startswith("toggle"):
         grid[t:b+1, l:r+1] += 2
 
