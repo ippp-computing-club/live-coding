@@ -38,10 +38,6 @@ y_r = 0
 
 dict_coor = {(x_s,y_s):1}
 
-#N = 1
-#coordinates = []
-#coordinates.append((x_s,y_s))
-#instructions = []
 
 for n,i in enumerate(data):
     if n % 2 == 0:
@@ -50,8 +46,62 @@ for n,i in enumerate(data):
 
         if (x_s,y_s) not in dict_coor:
             dict_coor[(x_s,y_s)] = 1
-        
-        """
+    else:
+        x_r += symbols[i][0]
+        y_r += symbols[i][1]
+
+        if (x_r,y_r) not in dict_coor:
+            dict_coor[(x_r,y_r)] = 1
+"""
+for step in data[0::2]:
+    x_s += symbols[step][0]
+    y_s += symbols[step][1]
+
+    if (x_s,y_s) not in dict_coor:
+        dict_coor[(x_s,y_s)] = 1
+    
+
+for step in data[1::2]:
+    x_r += symbols[step][0]
+    y_r += symbols[step][1]
+
+    if (x_r,y_r) not in dict_coor:
+        dict_coor[(x_r,y_r)] = 1
+"""
+
+N = len(dict_coor.keys())
+print("Total number of houses visited is:", N)
+
+file.close()
+
+"""
+#N = 1
+#coordinates = []
+#coordinates.append((x_s,y_s))
+#instructions = []
+
+for i in data:
+    if i == "^":
+        y = y + 1
+        if (x,y) not in coordinates:
+            coordinates.append((x,y))
+            N += 1
+    elif i == "v":
+        y = y - 1
+        if (x,y) not in coordinates:
+            coordinates.append((x,y))
+            N += 1
+    elif i == ">":
+        x = x + 1
+        if (x,y) not in coordinates:
+            coordinates.append((x,y))
+            N += 1
+    elif i == "<":
+        x = x - 1
+        if (x,y) not in coordinates:
+            coordinates.append((x,y))
+            N += 1
+
         if i == "^":
             y_s = y_s + 1
             if (x_s,y_s) not in coordinates:
@@ -76,66 +126,5 @@ for n,i in enumerate(data):
             dict_coor[(x_s,y_s)] = 1
 
         x_s, y_s, dict_coor = coor_update(i,x_s,y_s,dict_coor)
-        """
-    else:
-        x_r += symbols[i][0]
-        y_r += symbols[i][1]
-
-        if (x_r,y_r) not in dict_coor:
-            dict_coor[(x_r,y_r)] = 1
-
-        """
-        if i == "^":
-            y_r = y_r + 1
-            if (x_r,y_r) not in coordinates:
-                N+= 1
-        elif i == "v":
-            y_r = y_r - 1
-            if (x_r,y_r) not in coordinates:
-                N += 1
-        elif i == ">":
-            x_r = x_r + 1
-            if (x_r,y_r) not in coordinates:
-                N += 1
-        elif i == "<":
-            x_r = x_r - 1
-            if (x_r,y_r) not in coordinates:
-                N += 1
-
-        x_r, y_r = coor_update(i,x_r,y_r)
-
-        if (x_r,y_r) not in dict_coor: #coordinates:
-            #coordinates.append((x_r,y_r))
-            dict_coor[(x_r,y_r)] = 1
-        x_r, y_r, dict_coor = coor_update(i,x_r,y_r,dict_coor)       
-        """
-
-N = len(dict_coor.keys())#len(coordinates)
-print("Total number of houses visited is:", N)
-
-file.close()
-
-"""
-for i in data:
-    if i == "^":
-        y = y + 1
-        if (x,y) not in coordinates:
-            coordinates.append((x,y))
-            N += 1
-    elif i == "v":
-        y = y - 1
-        if (x,y) not in coordinates:
-            coordinates.append((x,y))
-            N += 1
-    elif i == ">":
-        x = x + 1
-        if (x,y) not in coordinates:
-            coordinates.append((x,y))
-            N += 1
-    elif i == "<":
-        x = x - 1
-        if (x,y) not in coordinates:
-            coordinates.append((x,y))
-            N += 1
 """
 
